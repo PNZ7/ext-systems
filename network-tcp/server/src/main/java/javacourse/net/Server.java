@@ -1,7 +1,6 @@
-package edu.javacourse.net;
+package javacourse.net;
 
 import java.io.*;
-import java.lang.reflect.Constructor;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
