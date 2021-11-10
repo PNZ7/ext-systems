@@ -21,7 +21,7 @@ public class Passport {
     private String number;
     @Column(name = "date_issue")
     private LocalDate issueDate;
-    @Column(name = "issueDepartment")
+    @Column(name = "issue_department")
     private String issueDepartment;
 
     public Long getPassportId() {
