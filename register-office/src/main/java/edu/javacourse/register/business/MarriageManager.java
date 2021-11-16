@@ -8,32 +8,28 @@ import edu.javacourse.register.view.MarriageResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("marriageService")
+@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class MarriageManager {
 
     private static Logger LOGGER = LoggerFactory.getLogger(MarriageManager.class);
 
-
+    @Autowired
     private MarriageDao marriageDao;
 
-//    @Autowired
-    private PersonDao PersonDao;
-
-//    @Autowired
-    public MarriageManager(PersonDao personDao) {
-        PersonDao = personDao;
-    }
-
     @Autowired
-    public void setMarriageDao(MarriageDao marriageDao) {
-        this.marriageDao = marriageDao;
-    }
+    private PersonDao personDao;
+
 
     public MarriageResponse findMarriageCertificate(MarriageRequest request){
         LOGGER.info("findMarriageCertificate called");
         MarriageCertificate cert = marriageDao.findMarriageCertificate(request);
+
+        personDao.findPersons();
 
         return new MarriageResponse();
     }
