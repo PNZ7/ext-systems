@@ -10,10 +10,19 @@ public class PersonDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<Person> findPersons(){
+    public List<Person> findPersons() {
         Query query = entityManager.createNamedQuery("Person.findPersons");
         query.setParameter("personId", 1L);
         return query.getResultList();
+
+    }
+
+
+    public Long addPerson(Person person) {
+
+        entityManager.persist(person);
+        entityManager.flush();
+        return person.getPersonId();
 
     }
 }
