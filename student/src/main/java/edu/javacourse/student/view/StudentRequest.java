@@ -3,10 +3,11 @@ package edu.javacourse.student.view;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
-public class StudentRequest {
+public class StudentRequest
+{
     private String lastName;
     private String firstName;
-    private String moddleName;
+    private String middleName;
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate dateOfBirth;
     private String passportSeria;
@@ -30,12 +31,12 @@ public class StudentRequest {
         this.firstName = firstName;
     }
 
-    public String getModdleName() {
-        return moddleName;
+    public String getMiddleName() {
+        return middleName;
     }
 
-    public void setModdleName(String moddleName) {
-        this.moddleName = moddleName;
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     public LocalDate getDateOfBirth() {
@@ -70,3 +71,4 @@ public class StudentRequest {
         this.passportDate = passportDate;
     }
 }
+
